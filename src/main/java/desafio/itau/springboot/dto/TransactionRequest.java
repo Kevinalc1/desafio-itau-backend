@@ -1,22 +1,37 @@
 package desafio.itau.springboot.dto;
 
-import desafio.itau.springboot.model.Transaction;
 import jakarta.validation.constraints.NotNull;
-
 import java.time.OffsetDateTime;
 
 public class TransactionRequest {
 
-    private double valor;
-    private OffsetDateTime dataHora;
+    @NotNull
+    private Double valor;
 
     @NotNull
-    public double getValor() {
+    private OffsetDateTime dataHora;
+
+    public TransactionRequest() {
+    }
+
+    public TransactionRequest(Double valor, OffsetDateTime dataHora) {
+        this.valor = valor;
+        this.dataHora = dataHora;
+    }
+
+    public Double getValor() {
         return valor;
     }
 
-    @NotNull
+    public void setValor(Double valor) {
+        this.valor = valor;
+    }
+
     public OffsetDateTime getDataHora() {
         return dataHora;
+    }
+
+    public void setDataHora(OffsetDateTime dataHora) {
+        this.dataHora = dataHora;
     }
 }
